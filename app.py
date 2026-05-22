@@ -1,6 +1,15 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import os
+import sys
+
+# 현재 파일(app.py)이 있는 디렉토리를 파이썬 검색 경로에 강제로 추가
+current_dir = os.path.dirname(os.path.abspath(__file__))
+if current_dir not in sys.path:
+    sys.path.append(current_dir)
+
+# 그 다음에 classes를 임포트합니다.
 from classes import (
     build_nova_city, PolicySimulator, Resource, EnergyGrid,
     SolarPanel, HydrogenCell, ESS, ExternalGrid, energy_to_bonus
